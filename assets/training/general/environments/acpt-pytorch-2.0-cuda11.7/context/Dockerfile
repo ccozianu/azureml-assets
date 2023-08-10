@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/azureml/aifx/stable-ubuntu2004-cu117-py38-torch200:{{latest-image-tag:biweekly\.\d{6}\.\d{1}}}
+FROM  mcr.microsoft.com/azureml/aifx/stable-ubuntu2004-cu113-py38-torch1110:biweekly.202308.1
 
 # Install pip dependencies
 COPY requirements.txt .
@@ -19,3 +19,6 @@ EXPOSE 5001 8883 8888
 RUN apt-get update
 RUN apt-get install -y openssh-server openssh-client
 
+RUN source /opt/conda/bin/activate base && \
+    pip uninstall --yes cryptography && \
+    pip install cryptography>=41.0.2
