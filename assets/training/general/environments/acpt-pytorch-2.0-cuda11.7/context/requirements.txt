@@ -13,3 +13,4 @@ MarkupSafe==2.1.2
 regex
 pybind11
 cryptography>=41.0.2
+aiohttp>=3.8.5
